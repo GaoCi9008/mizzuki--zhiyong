@@ -43,56 +43,6 @@ import { LinkPreset } from "../types/config";
  * 通过 children 字段实现下拉子菜单。children 中的每一项同样支持
  * LinkPreset 枚举或自定义链接对象，可以自由混合使用。
  *
- * 【单级菜单】（无 children，直接作为导航项显示）
- *   {
- *     name: "About",
- *     url: "/about/",
- *     icon: "material-symbols:info",
- *   }
- *
- * 【一级下拉菜单】（一个父级 + 多个子项）
- *   {
- *     name: "Links",
- *     url: "/links/",
- *     icon: "material-symbols:link",
- *     children: [
- *       { name: "GitHub",   url: "https://github.com", external: true, icon: "fa7-brands:github" },
- *       { name: "Bilibili", url: "https://bilibili.com", external: true, icon: "fa7-brands:bilibili" },
- *     ]
- *   }
- *
- * 【混合使用预设和自定义链接】
- *   children 中可以同时包含 LinkPreset 枚举和自定义对象：
- *   {
- *     name: "More",
- *     url: "#",
- *     icon: "material-symbols:more-horiz",
- *     children: [
- *       LinkPreset.Projects,                                    // 使用预设
- *       { name: "Skills", url: "/skills/", icon: "material-symbols:psychology" }, // 自定义
- *     ]
- *   }
- *
- * 【嵌套子菜单】（children 的 children，理论上支持无限层级）
- *   注意：当前 UI 仅渲染一级下拉。若需要更深层级，需配合前端组件改造。
- *   {
- *     name: "Resources",
- *     url: "#",
- *     icon: "material-symbols:folder",
- *     children: [
- *       {
- *         name: "文档",
- *         url: "#",
- *         icon: "material-symbols:description",
- *         children: [
- *           { name: "快速入门", url: "/docs/quick-start/", icon: "material-symbols:rocket" },
- *           { name: "API 参考", url: "/docs/api/", icon: "material-symbols:code" },
- *         ]
- *       },
- *       { name: "示例", url: "/examples/", icon: "material-symbols:sample" },
- *     ]
- *   }
- *
  * ══════════════════════════════════════════════════════════════
  * 图标说明
  * ══════════════════════════════════════════════════════════════
@@ -108,23 +58,6 @@ import { LinkPreset } from "../types/config";
  *
  * 浏览更多图标：https://icon-sets.iconify.design/
  *
- * ══════════════════════════════════════════════════════════════
- * external 字段说明
- * ══════════════════════════════════════════════════════════════
- *
- * - external: true  → 外部链接，点击后在新标签页打开，并显示外链图标标识
- * - external: false → 内部链接，在当前页面内导航（使用 Swup 无刷新跳转）
- * - 不设置        → 默认视为内部链接
- *
- * ══════════════════════════════════════════════════════════════
- * 注意事项
- * ══════════════════════════════════════════════════════════════
- *
- * 1. 关闭特色页面后（siteConfig.featurePages），导航栏会自动隐藏对应链接，无需手动移除。
- * 2. 内部链接 URL 格式为 "/page-name/"（以斜杠开头和结尾）。
- * 3. 外部链接 URL 必须包含完整协议前缀（如 "https://"）。
- * 4. 导航栏在移动端会自动收拢为汉堡菜单，子菜单以折叠面板形式展示。
- * 5. links 数组的顺序即为导航栏从左到右的显示顺序。
  */
 export const navBarConfig: NavBarConfig = {
 	links: [
@@ -141,19 +74,19 @@ export const navBarConfig: NavBarConfig = {
 			children: [
 				{
 					name: "GitHub",
-					url: "https://github.com/LyraVoid/Mizuki",
+					url: "https://github.com/GaoCi9008",
 					external: true, // 外部链接，新标签页打开
 					icon: "fa7-brands:github",
 				},
 				{
 					name: "Bilibili",
-					url: "https://space.bilibili.com/701864046",
+					url: "https://space.bilibili.com/1228292389?spm_id_from=333.1007.0.0",
 					external: true,
 					icon: "fa7-brands:bilibili",
 				},
 				{
-					name: "Gitee",
-					url: "https://gitee.com/matsuzakayuki/Mizuki",
+					name: "酷安",
+					url: "https://www.coolapk.com/u/26520460",
 					external: true,
 					icon: "mdi:git",
 				},
@@ -225,7 +158,6 @@ export const navBarConfig: NavBarConfig = {
 					url: "/skills/",
 					icon: "material-symbols:psychology",
 				},
-				LinkPreset.AITools,
 				{
 					name: "Timeline",
 					url: "/timeline/",
