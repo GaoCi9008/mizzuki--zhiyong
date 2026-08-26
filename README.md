@@ -1,3 +1,7 @@
+# ⚠️⚠️⚠️注意⚠️⚠️⚠️
+本仓库属于自用，主项目请前往下方链接
+
+
 # 🌸 Mizuki
 
 <img align='right' src='logo.png' width='200px' alt="Mizuki logo">
